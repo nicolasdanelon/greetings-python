@@ -1,6 +1,6 @@
 import unittest
 
-from src.greetings.sayhi import SayHi
+from greetings.sayhi import SayHi
 
 class TestGreetingClass(unittest.TestCase):
 
@@ -9,3 +9,15 @@ class TestGreetingClass(unittest.TestCase):
         result = say_hi.greeting()
         self.assertEqual(result, "Greeting I'm Nicolas, emissary of the Gorgonites")
 
+    def test_greeting_without_name(self):
+        say_hi = SayHi("")
+        result = say_hi.greeting()
+        self.assertEqual(result, "Greeting I'm , emissary of the Gorgonites")
+
+    def test_greeting_with_none_name(self):
+        say_hi = SayHi(None)
+        result = say_hi.greeting()
+        self.assertEqual(result, "Greeting I'm None, emissary of the Gorgonites")
+
+    def test_say_hi_with_empty_name(self):
+        self.assertRaises(TypeError, SayHi)

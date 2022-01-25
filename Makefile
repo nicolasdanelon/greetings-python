@@ -1,2 +1,2 @@
 tests:
-	python3 -m pytest
+	export PYTHONPATH=src/ && python3 -m pytest
